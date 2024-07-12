@@ -15,6 +15,8 @@
     {% endblock %}
 
     {% block content %}
+    <h2>Listado de paises</h2>
+    <div class="container">
         <table class="table table-success table-striped">
             <tr>
                 <th scope="col">Id. del país</th>
@@ -30,13 +32,13 @@
                     </form>
                 </td>
                 <td>
-                    <form action="" method="POST">
+                    <form action="{{ url_for('delete_pais', id_pais=pais[0]) }}" method="POST">
                         <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
                 </td>
-
                 </tr>
             {% endfor %}
         </table>
+    </div>
     {% endblock %}
 {% endblock %}
