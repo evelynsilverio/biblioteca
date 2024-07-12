@@ -110,7 +110,11 @@ def update1_pais(id_pais):
 
     #Crear un cursor(objeto para recorrer las tablas)
     cursor = conexion.cursor()
-
+    # recuperar el registro del id_pais seleccionado
+    cursor.execute('''SELECT * FROM pais WHERE id_pais=%s''', (id_pais,))
+    cursor.close()
+    conexion.close()
+    return redirect(url_for('update2'))
 
 if __name__ == '__main__':
     app.run(debug=True)
