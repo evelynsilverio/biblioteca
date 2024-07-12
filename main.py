@@ -97,6 +97,20 @@ def delete_pais(id_pais):
     conexion.close()
     return redirect(url_for('index'))
 
+@app.route('/update1_pais/<int:id_pais>', methods=['GET','POST'])
+def update1_pais(id_pais):
+    #Conectar con la base de datos
+    conexion = psycopg2.connect(
+        database="biblioteca3a",
+        user="postgres",
+        password="chikis03",
+        host="localhost",
+        port="5432"
+    )
+
+    #Crear un cursor(objeto para recorrer las tablas)
+    cursor = conexion.cursor()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
